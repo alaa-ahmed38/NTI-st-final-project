@@ -1,0 +1,53 @@
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="hero section" *ngIf="heroData">
+
+  <div class="container">
+    <div class="row gy-4 align-items-center">
+
+      <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+        <div class="content-wrapper">
+          <h1 class="hero-title">
+            <span class="typed"></span>
+          </h1>
+          <p class="lead">
+            {{ heroData.lead }}
+          </p>
+          <div class="hero-stats">
+            <div class="stat-item" *ngFor="let stat of heroData.stats">
+              <span class="purecounter" [attr.data-purecounter-end]="stat.value" data-purecounter-start="0" data-purecounter-duration="1">0</span>
+              <span class="stat-label">{{ stat.label }}</span>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <a *ngFor="let action of heroData.actions" [href]="action.link" 
+               [class.btn-primary]="action.isPrimary" 
+               [class.btn-outline]="!action.isPrimary" 
+               class="btn">{{ action.text }}</a>
+          </div>
+          <div class="social-links">
+            <a *ngFor="let social of heroData.socialLinks" [href]="social.url" target="_blank"><i [class]="social.iconClass"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5" data-aos="fade-up" data-aos-delay="200">
+        <div class="hero-image">
+          <div class="image-container">
+            <img [src]="heroData.imageUrl" alt="Alaa Ahmed" class="hero-main-image img-fluid">
+            <div class="image-overlay"></div>
+            <div class="floating-elements">
+
+              <div *ngFor="let card of heroData.floatingCards; let i = index" class="floating-card" [ngClass]="'card-' + (i + 1)">
+                <i [class]="card.iconClass"></i>
+                <span>{{ card.text }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+<!-- /Hero Section -->

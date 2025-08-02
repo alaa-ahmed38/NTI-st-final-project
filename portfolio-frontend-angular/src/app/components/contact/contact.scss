@@ -1,0 +1,24 @@
+.contact {
+  padding: 60px 0;
+  background: #f7f7f7;
+
+  // input, textarea {
+  //   border-radius: 5px;
+  //   padding: 10px;
+  //   width: 100%;
+  //   border: 1px solid #ccc;
+  // }
+
+  button {
+    background: #007bff;
+    border: none;
+    padding: 10px 30px;
+    color: white;
+    border-radius: 30px;
+    transition: 0.3s;
+
+    &:hover {
+      background: #0056b3;
+    }
+  }
+}

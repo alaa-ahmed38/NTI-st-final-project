@@ -1,0 +1,48 @@
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio section" *ngIf="projects.length > 0">
+<section id="portfolio" class="portfolio section" *ngIf="filters.length > 0">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Portfolio</h2>
+    <p>Here are some of the real-world projects I’ve built — turning code into solutions.</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <!-- portfolio-filters -->
+    <ul class="portfolio-filters" data-aos="fade-up" data-aos-delay="100">
+      <li *ngFor="let filter of filters; let i = index" 
+          [attr.data-filter]="filter.filterValue" 
+          [class.filter-active]="i === 0"> 
+        {{ filter.name }}
+      </li>
+    </ul><!-- End Portfolio Filters -->
+
+
+    <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
+      
+
+      <div class="col-lg-4 col-md-6 portfolio-item" *ngFor="let project of projects" [ngClass]="project.filterClass">
+        <div class="portfolio-entry">
+          <a [href]="project.imageUrl" data-gallery="portfolio-gallery-app" class="glightbox">
+            <img [src]="project.imageUrl" class="img-fluid" alt="">
+          </a>
+          <div class="entry-overlay">
+            <div class="overlay-content">
+              <p class="entry-meta">{{ project.category }}</p>
+              <h3 class="entry-title">{{ project.title }}</h3>
+              <div class="entry-links">
+
+                <a *ngIf="project.detailsUrl" [href]="project.detailsUrl" title="Live Preview" target="_blank"><i class="bi bi-box-arrow-up-right" ></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- End Portfolio Item -->
+
+    </div><!-- End Portfolio Container -->
+
+  </div>
+
+</section><!-- /Portfolio Section -->

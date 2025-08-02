@@ -1,0 +1,27 @@
+<header id="header" class="header d-flex align-items-center fixed-top" [class.scrolled]="isScrolled">
+  <div class="container-fluid container-xl position-relative d-flex align-items-center">
+    
+    <a (click)="scrollTo('hero')" class="logo d-flex align-items-center me-auto" style="cursor: pointer;">
+      <h1 class="sitename">my_portfolio</h1>
+    </a>
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        
+        <li><a (click)="scrollTo('hero')" [class.active]="activeSection === 'hero'" style="cursor: pointer;">Home</a></li>
+    
+        <li><a (click)="scrollTo('about')" [class.active]="activeSection === 'about'" style="cursor: pointer;">About</a></li>
+        <li><a (click)="scrollTo('skills')" [class.active]="activeSection === 'skills'" style="cursor: pointer;">Skills</a></li>
+        <li><a (click)="scrollTo('portfolio')" [class.active]="activeSection === 'portfolio'" style="cursor: pointer;">Projects</a></li>
+        <li><a (click)="scrollTo('testimonials')" [class.active]="activeSection === 'testimonials'" style="cursor: pointer;">testimonials</a></li>
+        <li><a (click)="scrollTo('contact')" [class.active]="activeSection === 'contact'" style="cursor: pointer;">Contact</a></li>
+        
+      </ul>
+      <i class="mobile-nav-toggle d-xl-none bi bi-list" (click)="toggleMobileNav()" style="cursor: pointer;"></i>
+    </nav>
+    
+    
+
+  </div>
+</header>
+
+

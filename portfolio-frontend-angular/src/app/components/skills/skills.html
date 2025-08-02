@@ -1,0 +1,67 @@
+<!-- ======= Skills Section ======= -->
+<section id="skills" class="skills section light-background" *ngIf="skillsPageData">
+
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Skills</h2>
+    <p>From front-end frameworks to back-end architecture — my skills bridge design, logic, and performance.</p>
+  </div>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row skills-grid gy-4">
+          <div class="col-md-6" *ngFor="let category of skillsPageData.categories">
+            <div class="skill-card">
+              <div class="skill-header">
+                <i [class]="category.iconClass"></i>
+                <h3>{{ category.name }}</h3>
+              </div>
+              <div class="skill-item" *ngFor="let skill of category.skills">
+                <div class="skill-info">
+                  <span class="skill-name">{{ skill.name }}</span>
+                  <span class="skill-percentage">{{ skill.percentage }}%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="progress-bar" role="progressbar" [style.width]="skill.percentage + '%'" [attr.aria-valuenow]="skill.percentage"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="skills-summary">
+          <h3>{{ skillsPageData.summary.title }}</h3>
+          <p>{{ skillsPageData.summary.description }}</p>
+          
+          <div class="summary-stats">
+            <div class="stat-item" *ngFor="let stat of skillsPageData.summary.stats">
+              <div class="stat-circle">
+                <i [class]="stat.iconClass"></i>
+              </div>
+              <div class="stat-info">
+                <span class="stat-number">{{ stat.count }}+</span>
+                <span class="stat-label">{{ stat.label }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills-badges">
+            <h4>Certifications</h4>
+            <div class="badge-list">
+              <span class="skill-badge" *ngFor="let badge of skillsPageData.summary.badges">
+                {{ badge.name }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section><!-- /Skills Section -->

@@ -1,0 +1,63 @@
+<section id="testimonials" class="testimonials section" *ngIf="testimonialsData">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Testimonials</h2>
+    <p>"Client satisfaction is my top priority — I believe in building not just clean and scalable applications, but also strong professional relationships based on trust and reliability."</p>
+  </div>
+  <!-- End Section Title -->
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <!-- Testimonials Slider -->
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <div class="testimonials-container">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+
+              <div class="col-lg-4" *ngFor="let testimonial of testimonialsData.userTestimonials"style="padding: 0 12px;">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <i *ngFor="let i of createArray(testimonial.rating)" class="bi bi-star-fill"></i>
+                    <i *ngFor="let i of createArray(5 - testimonial.rating)" class="bi bi-star"></i>
+                  </div>
+                  <p>{{ testimonial.quote }}</p>
+                  <div class="testimonial-profile">
+                    <img [src]="testimonial.imageUrl" class="testimonial-img" alt="">
+                    <div>
+                      <h3>{{ testimonial.name }}</h3>
+                      <h4>{{ testimonial.title }}</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End testimonial item -->
+
+    <!-- Overall Rating -->
+     
+    <div class="row justify-content-center" >
+      <div class="col-lg-6 text-center">
+        <div class="overall-rating" style=" border-top: 3px solid #065cc2;">
+          <div class="rating-number">{{ testimonialsData.overallRating.ratingValue }}</div>
+          <div class="rating-stars">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+          </div>
+          <p>Based on {{ testimonialsData.overallRating.totalReviews }}+ reviews</p>
+          <div class="rating-platforms">
+            <span *ngFor="let platform of testimonialsData.overallRating.platforms">{{ platform }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End overall Rating -->
+
+  </div>
+
+</section>

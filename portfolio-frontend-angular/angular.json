@@ -1,0 +1,129 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "mine2": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+  {
+    "glob": "**/*",
+    "input": "src/assets/",
+    "output": "/assets/"
+  },
+  "src/favicon.ico"
+],
+            "styles": [
+  "src/styles.scss",
+  "src/assets/template/vendor/bootstrap/css/bootstrap.min.css",
+  "src/assets/template/vendor/bootstrap-icons/bootstrap-icons.css",
+  "src/assets/template/vendor/glightbox/css/glightbox.min.css",
+  "src/assets/template/vendor/swiper/swiper-bundle.min.css",
+  "src/assets/template/css/style.css"
+],
+
+
+"scripts": [
+  "src/assets/template/vendor/purecounter/purecounter_vanilla.js",
+  "src/assets/template/vendor/bootstrap/js/bootstrap.bundle.min.js",
+  "src/assets/template/vendor/glightbox/js/glightbox.min.js",
+  "src/assets/template/vendor/isotope-layout/isotope.pkgd.min.js",
+  "src/assets/template/vendor/swiper/swiper-bundle.min.js",
+  "src/assets/template/vendor/waypoints/noframework.waypoints.js",
+  "src/assets/template/vendor/typed.js/typed.umd.js",  
+  "src/assets/template/js/main.js"
+]
+
+
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "mine2:build:production"
+            },
+            "development": {
+              "buildTarget": "mine2:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular/build:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": [
+              "src/styles.scss"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
+  }
+}
